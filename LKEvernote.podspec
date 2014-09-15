@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LKEvernote"
-  s.version          = "0.1.0"
+  s.version          = "1.0.0"
   s.summary          = "Evernote Utility"
   s.description      = <<-DESC
                        Evernote Utility

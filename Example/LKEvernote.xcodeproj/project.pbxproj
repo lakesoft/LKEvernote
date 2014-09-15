@@ -23,6 +23,8 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		9936B3561FB44D47A5130530 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BE08635F784667BF405E67 /* libPods-Tests.a */; };
+		BC879D4019C6D7F10012EF5C /* LKNotebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC879D3F19C6D7F10012EF5C /* LKNotebookViewController.m */; };
+		BC879D4319C6D7FD0012EF5C /* LKTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC879D4219C6D7FD0012EF5C /* LKTagsViewController.m */; };
 		EF980B84E2DC4913B72B212E /* libPods-LKEvernote.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3642C163BA4045679115BA9B /* libPods-LKEvernote.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,10 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		BC879D3E19C6D7F10012EF5C /* LKNotebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKNotebookViewController.h; sourceTree = "<group>"; };
+		BC879D3F19C6D7F10012EF5C /* LKNotebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKNotebookViewController.m; sourceTree = "<group>"; };
+		BC879D4119C6D7FD0012EF5C /* LKTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTagsViewController.h; sourceTree = "<group>"; };
+		BC879D4219C6D7FD0012EF5C /* LKTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTagsViewController.m; sourceTree = "<group>"; };
 		C3317FBB87994EB7B1874EAC /* LKEvernote.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LKEvernote.podspec; path = ../LKEvernote.podspec; sourceTree = "<group>"; };
 		E7A6E25C7713493F98B6973D /* Pods-LKEvernote.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKEvernote.xcconfig"; path = "Pods/Pods-LKEvernote.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,7 +102,6 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
-				BC879D3519C670870012EF5C /* Classes (Alias) */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* LKEvernote */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -138,6 +143,10 @@
 				6003F5A2195388D20070C39A /* Main_iPad.storyboard */,
 				6003F5A5195388D20070C39A /* LKViewController.h */,
 				6003F5A6195388D20070C39A /* LKViewController.m */,
+				BC879D3E19C6D7F10012EF5C /* LKNotebookViewController.h */,
+				BC879D3F19C6D7F10012EF5C /* LKNotebookViewController.m */,
+				BC879D4119C6D7FD0012EF5C /* LKTagsViewController.h */,
+				BC879D4219C6D7FD0012EF5C /* LKTagsViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -182,13 +191,6 @@
 				5653E686266E47BA8817C84B /* LICENSE */,
 			);
 			name = "Podspec Metadata";
-			sourceTree = "<group>";
-		};
-		BC879D3519C670870012EF5C /* Classes (Alias) */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Classes (Alias)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +359,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC879D4319C6D7FD0012EF5C /* LKTagsViewController.m in Sources */,
+				BC879D4019C6D7F10012EF5C /* LKNotebookViewController.m in Sources */,
 				6003F59E195388D20070C39A /* LKAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* LKViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

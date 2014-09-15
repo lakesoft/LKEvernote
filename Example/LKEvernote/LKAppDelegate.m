@@ -7,15 +7,28 @@
 //
 
 #import "LKAppDelegate.h"
-#import "LKEverote.h"
+#import "LKEvernote.h"
 
 @implementation LKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+#warning Change host and fill API's key & secret.
+    [LKEvernoteManager.sharedManager setupWithHost:BootstrapServerBaseURLStringSandbox
+                                               key:@""
+                                            secret:@""];
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([LKEvernoteManager.sharedManager canHandleWithURL:url]) {
+        return YES;
+    }
+    return NO;
+}
+
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

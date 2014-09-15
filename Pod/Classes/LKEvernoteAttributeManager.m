@@ -53,14 +53,20 @@
     self.notebooks = [LKCachesDirectoryArchiver
                       unarchiveObjectForKey:LK_EVERNOTE_NOTEBOOK_ARCHIVE_KEY
                       defaultObject:^id{
-                          [_weak_self reloadNotebooks];
+                          [_weak_self reloadNotebookWithSuccess:nil
+                                                        failure:^(NSError *error) {
+                                                            NSLog(@"%s: %@", __PRETTY_FUNCTION__, error);
+                                                        }];
                           return nil;
                       }];
     
     self.tags = [LKCachesDirectoryArchiver
                  unarchiveObjectForKey:LK_EVERNOTE_TAGS_ARCHIVE_KEY
                  defaultObject:^id{
-                     [_weak_self reloadTags];
+                     [_weak_self reloadTagWithSuccess:nil
+                                              failure:^(NSError *error) {
+                                                  NSLog(@"%s: %@", __PRETTY_FUNCTION__, error);
+                                              }];
                      return nil;
                  }];
 
@@ -105,30 +111,35 @@
 }
 
 
-#pragma mark - API (Notebook)
-- (void)reloadNotebooks
+- (void)clearAll
 {
-//    UIApplication.sharedApplication.networkActivityIndicatorVisible = YES;
+    self.defaultNotebook = nil;
+    self.notebooks = nil;
+    self.tags = nil;
+    
+    [LKCachesDirectoryArchiver removeArchiveForKey:LK_EVERNOTE_DEFAULT_NOTEBOOK_ARCHIVE_KEY];
+    [LKCachesDirectoryArchiver removeArchiveForKey:LK_EVERNOTE_NOTEBOOK_ARCHIVE_KEY];
+    [LKCachesDirectoryArchiver removeArchiveForKey:LK_EVERNOTE_TAGS_ARCHIVE_KEY];
+}
 
+
+#pragma mark - API (Notebook)
+- (void)reloadNotebookWithSuccess:(void(^)(NSArray* notebooks))success failure:(void(^)(NSError* error))failure
+{
     [EvernoteNoteStore.noteStore listNotebooksWithSuccess:^(NSArray* edamNotebooks) {
-        
-//        UIApplication.sharedApplication.networkActivityIndicatorVisible = NO;
-
         NSMutableArray* notebooks = @[].mutableCopy;
         for (EDAMNotebook* edamNotebook in edamNotebooks) {
             [notebooks addObject:[LKEvernoteNotebook notebookWithEDAMNotebook:edamNotebook]];
         }
-        self.notebooks = [notebooks sortedArrayUsingComparator:^NSComparisonResult(LKEvernoteNotebook* n1, LKEvernoteNotebook* n2) {
+        NSArray* result = [notebooks sortedArrayUsingComparator:^NSComparisonResult(LKEvernoteNotebook* n1, LKEvernoteNotebook* n2) {
             return [n1 compare:n2];
         }];
+        self.notebooks = result;
         [LKCachesDirectoryArchiver archiveRootObject:self.notebooks forKey:LK_EVERNOTE_NOTEBOOK_ARCHIVE_KEY];
-
-        [NSNotificationCenter.defaultCenter postNotificationName:LKEvernoteAttributeDidLoadNotebook
-                                                          object:nil];
+        success(result);
     }
                                                   failure:^(NSError* error) {
-//                                                      UIApplication.sharedApplication.networkActivityIndicatorVisible = NO;
-                                                      NSLog(@"%s:%@", __PRETTY_FUNCTION__, error);
+                                                      failure(error);
                                                   }];
 }
 
@@ -171,29 +182,23 @@
 
 
 #pragma mark - API (Tag)
-- (void)reloadTags
+- (void)reloadTagWithSuccess:(void(^)(NSArray* tags))success failure:(void(^)(NSError* error))failure
 {
-//    UIApplication.sharedApplication.networkActivityIndicatorVisible = YES;
-
     [EvernoteNoteStore.noteStore listTagsWithSuccess:^(NSArray* edamTags) {
-        
-//        UIApplication.sharedApplication.networkActivityIndicatorVisible = NO;
-
         NSMutableArray* tags = @[].mutableCopy;
         for (EDAMTag* edamTag in edamTags) {
             [tags addObject:[LKEvernoteTag tagWithEDAMTag:edamTag]];
         }
-        self.tags = [tags sortedArrayUsingComparator:^NSComparisonResult(LKEvernoteTag* n1, LKEvernoteTag* n2) {
+        NSArray* result = [tags sortedArrayUsingComparator:^NSComparisonResult(LKEvernoteTag* n1, LKEvernoteTag* n2) {
             return [n1 compare:n2];
         }];
+        self.tags = result;
         [LKCachesDirectoryArchiver archiveRootObject:self.tags forKey:LK_EVERNOTE_TAGS_ARCHIVE_KEY];
         
-        [NSNotificationCenter.defaultCenter postNotificationName:LKEvernoteAttributeDidLoadTag
-                                                          object:nil];
+        success(result);
     }
                                                   failure:^(NSError* error) {
-//                                                      UIApplication.sharedApplication.networkActivityIndicatorVisible = NO;
-                                                      NSLog(@"%s:%@", __PRETTY_FUNCTION__, error);
+                                                      failure(error);
                                                   }];
 }
 

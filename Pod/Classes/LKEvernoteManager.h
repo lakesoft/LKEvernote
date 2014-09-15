@@ -16,4 +16,6 @@
 - (void)authenticateWithViewController:(UIViewController *)viewController
                      completionHandler:(EvernoteAuthCompletionHandler)completionHandler;
 
+- (void)logout;
+
 @end

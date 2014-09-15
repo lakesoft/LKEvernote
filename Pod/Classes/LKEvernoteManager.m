@@ -11,7 +11,6 @@
 
 - (void)setupWithHost:(NSString*)host key:(NSString*)key secret:(NSString*)secret
 {
-    // set up Evernote session singleton
     [EvernoteSession setSharedSessionHost:host consumerKey:key consumerSecret:secret];
     
     if (self.isAuthenticated) {
@@ -28,7 +27,6 @@
     return canHandle;
 }
 
-#pragma mark - API
 + (instancetype)sharedManager
 {
     static LKEvernoteManager* _sharedManager = nil;
@@ -38,7 +36,6 @@
     });
     return _sharedManager;
 }
-
 
 #pragma mark - Authentication
 
@@ -59,6 +56,14 @@
         }
         completionHandler(error);
     }];
+}
+
+- (void)logout
+{
+    EvernoteSession *session = [EvernoteSession sharedSession];
+    [session logout];
+    
+    [LKEvernoteAttributeManager.sharedManager clearAll];
 }
 
 @end

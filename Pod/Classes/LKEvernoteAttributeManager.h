@@ -6,10 +6,6 @@
 #import "LKEvernoteNotebook.h"
 #import "LKEvernoteTag.h"
 
-#define LKEvernoteAttributeDidLoadNotebook    @"LKEvernoteAttributeDidLoadNotebook"
-#define LKEvernoteAttributeDidLoadTag         @"LKEvernoteAttributeDidLoadTag"
-
-
 @interface LKEvernoteAttributeManager : NSObject
 
 @property (strong, nonatomic, readonly) LKEvernoteNotebook* defaultNotebook;
@@ -23,14 +19,16 @@
 - (NSString*)attributeDescriptionSlashWithNotebookGuid:(NSString*)notebookGuid tagGuids:(NSArray*)tagGuids;  // notebook / tags
 - (NSString*)attributeDescriptionReturnWithNotebookGuid:(NSString*)notebookGuid tagGuids:(NSArray*)tagGuids;  // notebook\ntags
 
+- (void)clearAll;   // clear notebooks and tags, remove caches
+
 #pragma mark - API (Notebook)
-- (void)reloadNotebooks;
+- (void)reloadNotebookWithSuccess:(void(^)(NSArray* notebooks))success failure:(void(^)(NSError* error))failure;
 - (LKEvernoteNotebook*)notebookForGuid:(NSString*)guid;
 - (NSString*)notebookDescriptionForGuid:(NSString*)guid;
 - (NSInteger)indexForNotebookGuid:(NSString*)notebookGuid;
 
 #pragma mark - API (Tag)
-- (void)reloadTags;
+- (void)reloadTagWithSuccess:(void(^)(NSArray* tags))success failure:(void(^)(NSError* error))failure;
 - (NSArray*)tagsForGuids:(NSArray*)guids;    // <EvernoteTag>
 - (NSMutableOrderedSet*)tagsAsOrderedSetForGuids:(NSArray*)guids;
 - (NSString*)tagsDescriptionForGuids:(NSArray*)guids;
