@@ -10,15 +10,18 @@
 Pod::Spec.new do |s|
   s.name             = "LKEvernote"
   s.version          = "0.1.0"
-  s.summary          = "Evernote Utility"
+  s.summary          = "A short description of LKEvernote."
   s.description      = <<-DESC
-                       Evernote Utility
+                       An optional longer description of LKEvernote
+
+                       * Markdown format.
+                       * Don't worry about the indent, we strip it!
                        DESC
-  s.homepage         = "https://github.com/lakesoft/LKEvernote"
+  s.homepage         = "https://github.com/<GITHUB_USERNAME>/LKEvernote"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Hiroshi Hashiguchi" => "xcatsan@mac.com" }
-  s.source           = { :git => "https://github.com/lakesoft/LKEvernote.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/LKEvernote.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.platform     = :ios, '7.0'
