@@ -7,6 +7,7 @@
 //
 
 #import "LKAppDelegate.h"
+#import "LKEverote.h"
 
 @implementation LKAppDelegate
 

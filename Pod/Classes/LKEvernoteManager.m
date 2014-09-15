@@ -1,13 +1,64 @@
 //
 //  LKEvernoteManager.m
-//  PicsOne
-//
-//  Created by Hiroshi Hashiguchi on 2014/09/04.
-//  Copyright (c) 2014年 lakesoft. All rights reserved.
 //
 
 #import "LKEvernoteManager.h"
+#import "LKEvernoteAttributeManager.h"
 
 @implementation LKEvernoteManager
+
+#pragma mark - API
+
+- (void)setupWithHost:(NSString*)host key:(NSString*)key secret:(NSString*)secret
+{
+    // set up Evernote session singleton
+    [EvernoteSession setSharedSessionHost:host consumerKey:key consumerSecret:secret];
+    
+    if (self.isAuthenticated) {
+        [LKEvernoteAttributeManager.sharedManager setup]; //[*1]
+    }
+}
+
+- (BOOL)canHandleWithURL:(NSURL*)url
+{
+    BOOL canHandle = NO;
+    if ([[NSString stringWithFormat:@"en-%@", [[EvernoteSession sharedSession] consumerKey]] isEqualToString:[url scheme]] == YES) {
+        canHandle = [[EvernoteSession sharedSession] canHandleOpenURL:url];
+    }
+    return canHandle;
+}
+
+#pragma mark - API
++ (instancetype)sharedManager
+{
+    static LKEvernoteManager* _sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedManager = self.new;
+    });
+    return _sharedManager;
+}
+
+
+#pragma mark - Authentication
+
+- (BOOL)isAuthenticated
+{
+    return EvernoteSession.sharedSession.isAuthenticated;
+}
+
+- (void)authenticateWithViewController:(UIViewController *)viewController
+                     completionHandler:(EvernoteAuthCompletionHandler)completionHandler
+{
+    EvernoteSession *session = [EvernoteSession sharedSession];
+    [session authenticateWithViewController:viewController completionHandler:^(NSError *error) {
+        if (error || !session.isAuthenticated) {
+            NSLog(@"%s:%@", __PRETTY_FUNCTION__, error);
+        } else {
+            [LKEvernoteAttributeManager.sharedManager setup];     //[*2]
+        }
+        completionHandler(error);
+    }];
+}
 
 @end

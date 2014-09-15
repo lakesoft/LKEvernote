@@ -9,6 +9,7 @@
 #import "LKViewController.h"
 
 @interface LKViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *stausLabel;
 
 @end
 
@@ -24,6 +25,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)login:(id)sender {
+}
+- (IBAction)logout:(id)sender {
 }
 
 @end

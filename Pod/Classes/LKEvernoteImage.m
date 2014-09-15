@@ -1,9 +1,5 @@
 //
-//  EvernoteImageResource.m
-//  ScrapOne
-//
-//  Created by Hiroshi Hashiguchi on 2013/12/31.
-//  Copyright (c) 2013年 lakesoft. All rights reserved.
+//  LKEvernoteImageResource.m
 //
 
 #import "LKEvernoteImage.h"
