@@ -40,9 +40,10 @@
 
 /* Begin PBXFileReference section */
 		01BE08635F784667BF405E67 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EBE29D1ED5E3E2CAFA4F75D /* Pods-LKEvernote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKEvernote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LKEvernote/Pods-LKEvernote.debug.xcconfig"; sourceTree = "<group>"; };
 		331007D9934C4F92A84C83B9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		3642C163BA4045679115BA9B /* libPods-LKEvernote.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LKEvernote.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D9D9428161447FE8F7CE6A8 /* Pods-Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.xcconfig"; path = "Pods/Pods-Tests.xcconfig"; sourceTree = "<group>"; };
+		3701292A788DA77BCACE0712 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		5653E686266E47BA8817C84B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* LKEvernote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LKEvernote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -65,12 +66,13 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		7938E5DE7EC717AEE78D2B46 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		A9891BF5D72E1C44A32D3FF0 /* Pods-LKEvernote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKEvernote.release.xcconfig"; path = "Pods/Target Support Files/Pods-LKEvernote/Pods-LKEvernote.release.xcconfig"; sourceTree = "<group>"; };
 		BC879D3E19C6D7F10012EF5C /* LKNotebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKNotebookViewController.h; sourceTree = "<group>"; };
 		BC879D3F19C6D7F10012EF5C /* LKNotebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKNotebookViewController.m; sourceTree = "<group>"; };
 		BC879D4119C6D7FD0012EF5C /* LKTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTagsViewController.h; sourceTree = "<group>"; };
 		BC879D4219C6D7FD0012EF5C /* LKTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTagsViewController.m; sourceTree = "<group>"; };
 		C3317FBB87994EB7B1874EAC /* LKEvernote.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LKEvernote.podspec; path = ../LKEvernote.podspec; sourceTree = "<group>"; };
-		E7A6E25C7713493F98B6973D /* Pods-LKEvernote.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LKEvernote.xcconfig"; path = "Pods/Pods-LKEvernote.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +109,7 @@
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
-				E7A6E25C7713493F98B6973D /* Pods-LKEvernote.xcconfig */,
-				3D9D9428161447FE8F7CE6A8 /* Pods-Tests.xcconfig */,
+				E179EDEBC3E69089C9B8986C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,6 +192,17 @@
 				5653E686266E47BA8817C84B /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		E179EDEBC3E69089C9B8986C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0EBE29D1ED5E3E2CAFA4F75D /* Pods-LKEvernote.debug.xcconfig */,
+				A9891BF5D72E1C44A32D3FF0 /* Pods-LKEvernote.release.xcconfig */,
+				7938E5DE7EC717AEE78D2B46 /* Pods-Tests.debug.xcconfig */,
+				3701292A788DA77BCACE0712 /* Pods-Tests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,7 +316,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-LKEvernote-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LKEvernote/Pods-LKEvernote-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		989F79E51C6E4B3B8CD1BEAD /* Check Pods Manifest.lock */ = {
@@ -349,7 +361,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Tests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -495,7 +507,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7A6E25C7713493F98B6973D /* Pods-LKEvernote.xcconfig */;
+			baseConfigurationReference = 0EBE29D1ED5E3E2CAFA4F75D /* Pods-LKEvernote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -509,7 +521,7 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7A6E25C7713493F98B6973D /* Pods-LKEvernote.xcconfig */;
+			baseConfigurationReference = A9891BF5D72E1C44A32D3FF0 /* Pods-LKEvernote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -523,7 +535,7 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D9D9428161447FE8F7CE6A8 /* Pods-Tests.xcconfig */;
+			baseConfigurationReference = 7938E5DE7EC717AEE78D2B46 /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LKEvernote.app/LKEvernote";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -546,7 +558,7 @@
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D9D9428161447FE8F7CE6A8 /* Pods-Tests.xcconfig */;
+			baseConfigurationReference = 3701292A788DA77BCACE0712 /* Pods-Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LKEvernote.app/LKEvernote";
 				FRAMEWORK_SEARCH_PATHS = (

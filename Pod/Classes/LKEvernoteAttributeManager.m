@@ -136,10 +136,14 @@
         }];
         self.notebooks = result;
         [LKCachesDirectoryArchiver archiveRootObject:self.notebooks forKey:LK_EVERNOTE_NOTEBOOK_ARCHIVE_KEY];
-        success(result);
+        if (success) {
+            success(result);
+        }
     }
                                                   failure:^(NSError* error) {
-                                                      failure(error);
+                                                      if (failure) {
+                                                          failure(error);
+                                                      }
                                                   }];
 }
 
@@ -194,11 +198,14 @@
         }];
         self.tags = result;
         [LKCachesDirectoryArchiver archiveRootObject:self.tags forKey:LK_EVERNOTE_TAGS_ARCHIVE_KEY];
-        
-        success(result);
+        if (success) {
+            success(result);
+        }
     }
                                                   failure:^(NSError* error) {
-                                                      failure(error);
+                                                      if (failure) {
+                                                          failure(error);
+                                                      }
                                                   }];
 }
 
