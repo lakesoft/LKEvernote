@@ -66,4 +66,32 @@
     [LKEvernoteAttributeManager.sharedManager clearAll];
 }
 
+#pragma mark - Accounting
+- (NSInteger)uploadLimit
+{
+    EvernoteSession *session = [EvernoteSession sharedSession];
+    EDAMUser* user = [session.userStore getUser:session.authenticationToken];
+    EDAMAccounting* accounting = user.accounting;
+    return accounting.uploadLimit;
+}
+
+- (BOOL)isPremium
+{
+    EvernoteSession *session = [EvernoteSession sharedSession];
+    EDAMUser* user = [session.userStore getUser:session.authenticationToken];
+    EDAMAccounting* accounting = user.accounting;
+    return accounting.premiumServiceStatus == 2;    // 2=ACTIVE
+    // @see https://dev.evernote.com/doc/reference/Types.html#Enum_PremiumOrderStatus
+}
+
+- (NSInteger)noteLimit
+{
+    if (self.isPremium) {
+        return EDAMLimitsConstants.EDAM_USER_UPLOAD_LIMIT_PREMIUM;
+    } else {
+        return EDAMLimitsConstants.EDAM_USER_UPLOAD_LIMIT_FREE;
+    }
+}
+
+
 @end

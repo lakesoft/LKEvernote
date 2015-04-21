@@ -14,10 +14,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-#warning Change host and fill API's key & secret.
+#warning You must prepare "EvernoteSandboxAccount.plist", which have ConsumerKey and ConsumerSecret values.
+    NSString* filePath = [NSBundle.mainBundle pathForResource:@"EvernoteSandboxAccount" ofType:@"plist"];
+    NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
     [LKEvernoteManager.sharedManager setupWithHost:BootstrapServerBaseURLStringSandbox
-                                               key:@""
-                                            secret:@""];
+                                               key:dict[@"ConsumerKey"]
+                                            secret:dict[@"ConsumerSecret"]];
     return YES;
 }
 

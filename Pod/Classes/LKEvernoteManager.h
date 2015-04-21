@@ -15,7 +15,11 @@
 - (BOOL)isAuthenticated;
 - (void)authenticateWithViewController:(UIViewController *)viewController
                      completionHandler:(EvernoteAuthCompletionHandler)completionHandler;
-
 - (void)logout;
+
+// Accounting
+- (NSInteger)uploadLimit;
+- (BOOL)isPremium;
+- (NSInteger)noteLimit;
 
 @end

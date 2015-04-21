@@ -25,6 +25,7 @@
 		9936B3561FB44D47A5130530 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BE08635F784667BF405E67 /* libPods-Tests.a */; };
 		BC879D4019C6D7F10012EF5C /* LKNotebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC879D3F19C6D7F10012EF5C /* LKNotebookViewController.m */; };
 		BC879D4319C6D7FD0012EF5C /* LKTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC879D4219C6D7FD0012EF5C /* LKTagsViewController.m */; };
+		BCC62EDB1AE5A625001C57BA /* EvernoteSandboxAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCC62EDA1AE5A625001C57BA /* EvernoteSandboxAccount.plist */; };
 		EF980B84E2DC4913B72B212E /* libPods-LKEvernote.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3642C163BA4045679115BA9B /* libPods-LKEvernote.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		BC879D3F19C6D7F10012EF5C /* LKNotebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKNotebookViewController.m; sourceTree = "<group>"; };
 		BC879D4119C6D7FD0012EF5C /* LKTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LKTagsViewController.h; sourceTree = "<group>"; };
 		BC879D4219C6D7FD0012EF5C /* LKTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LKTagsViewController.m; sourceTree = "<group>"; };
+		BCC62EDA1AE5A625001C57BA /* EvernoteSandboxAccount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = EvernoteSandboxAccount.plist; path = ../../../EvernoteSandboxAccount.plist; sourceTree = "<group>"; };
 		C3317FBB87994EB7B1874EAC /* LKEvernote.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LKEvernote.podspec; path = ../LKEvernote.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,6 +163,7 @@
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
 				6003F59B195388D20070C39A /* LKEvernote-Prefix.pch */,
+				BCC62EDA1AE5A625001C57BA /* EvernoteSandboxAccount.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				BCC62EDB1AE5A625001C57BA /* EvernoteSandboxAccount.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

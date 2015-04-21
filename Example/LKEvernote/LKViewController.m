@@ -20,6 +20,8 @@
 - (void)_updateStatus
 {
     self.stausLabel.text = LKEvernoteManager.sharedManager.isAuthenticated ? @"logged in" : @"logged out";
+    
+    LKEvernoteManager.sharedManager.noteLimit;
 }
 
 - (void)viewDidLoad
@@ -42,7 +44,7 @@
                                                           [self _updateStatus];
                                                           NSLog(@"logged in");
                                                       } else {
-                                                          NSLog(@"%@", error);
+                                                          NSLog(@"[ERROR] %@", error);
                                                       }
                                                   }];
 
